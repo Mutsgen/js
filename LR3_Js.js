@@ -3,7 +3,7 @@
 надёжность пароля. Пароль является надёжным, когда в нём есть хотя бы четыре символа,
 а также есть хотя бы один из символов '-', '_'. Выведите в консоль сообщения «Пароль
 надёжный» или «Пароль недостаточно надёжный».*/
-// let password = prompt("Password");
+let password = prompt("Password");
 
 function passCheck(password) {
   if (password.length > 4 && password.includes("-" || password.includes("_"))) {
@@ -12,7 +12,7 @@ function passCheck(password) {
     console.log(`${password}, никак не подходит, не надежен он`);
   }
 }
-// passCheck(password);
+passCheck(password);
 
 /* В переменных name, surname написаны имя и фамилия человека. При этом в строках
 беспорядок с большими и маленькими буквами, и нужно привести строки в порядок. Для
