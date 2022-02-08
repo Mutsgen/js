@@ -18,15 +18,18 @@ let blockArr = [`danobez21@gmail.com`, `backinschool@rumbler.ru`];
 
 function filter(emailArr, blackList) {
   let whiteEmailArr = [];
-  for (let i of emailArr) {
-    if (blackList.includes(i)) {
-      console.log(`${i} in blacklist`);
-    } else {
-      whiteEmailArr.push(i);
+  for (let email of emailArr) {
+    for (let black of blackList) {
+      if (black.includes(email)) {
+        if (black.length == email.length) {
+          console.log(`${email} in blacklist`);
+        }
+        break;
+      } else if (!whiteEmailArr.includes(email)) {
+        whiteEmailArr.push(email);
+      }
     }
   }
   console.log(whiteEmailArr);
 }
-//  не совсем корректен, если проверяемый адресс будет содержать часть адресса из черного списка и они совпадут, то фильтр его исключит
-//  нужно бы просто проверять на длинну обоих адрессов, но я не придумал, как вернуть адресс из черного списка с которым совпало
 filter(emailArr, blockArr);
